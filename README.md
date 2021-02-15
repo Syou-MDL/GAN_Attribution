@@ -1,6 +1,6 @@
-# GAN_Attribution
+# GAN Attribution via Latent Recovery
 
-This is the implementation for GAN attribution via Latent Recovery
+This is the tensorflow implementation for GAN attribution via Latent Recovery
 
 <!-- 
 ### [paper](https://arxiv.org/pdf/1811.08180.pdf) 
