@@ -1,4 +1,3 @@
-# +
 import numpy as np
 import dnnlib
 import dnnlib.tflib as tflib
@@ -18,7 +17,7 @@ import argparse
 import os
 
 
-# +
+#------------define image attacks----------
 def noise(src, sigma=0.1):
     gauss = np.random.normal(0, sigma*2, src[0].shape)
     noisy = src + gauss
@@ -60,8 +59,7 @@ def jpeg(src,Quality=100):
 
 
 
-# -
-
+# --------latent recovery
 def recovery(name,pkl_path1,pkl_path2, out_dir, target_latents_dir, \
              num_init=4, num_total_sample=50, minibatch_size = 1, attack=None, denoiseing=False, param=None, loss_func='lpips'):
 
@@ -103,7 +101,7 @@ def recovery(name,pkl_path1,pkl_path2, out_dir, target_latents_dir, \
     
     start_time = time.time()
     for k in range(len(z_init),num_total_sample):
-        #=======sample target image=====
+        #sample target image
         latent = pre_latents[k]
         z_init.append(latent)
         
@@ -114,14 +112,14 @@ def recovery(name,pkl_path1,pkl_path2, out_dir, target_latents_dir, \
         target_images = Gt.get_output_for(latents, labels, is_training=False)
         target_images = tfutil.run(target_images)
 
-        #================attack
+        #attack
         if attack is not None:
             target_images = attack(target_images, param)
         if denoiseing:
             target_images = blur(target_images, 3)
 
 
-        #===========recovery==========
+        #recovery
         l2_dists = []
         lpips_dists = []
         learned_latents=[]
@@ -142,7 +140,6 @@ def recovery(name,pkl_path1,pkl_path2, out_dir, target_latents_dir, \
         np.save(out_dir+'/z_init',np.array(z_init))
         np.save(out_dir+'/z_re',np.array(latents_log))
 
-# +
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
