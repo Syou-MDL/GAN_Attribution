@@ -6,7 +6,7 @@ This is the implementation for GAN attribution via Latent Recovery
 -### [Attributing Fake Images to GANs: Learning and Analyzing GAN Fingerprints](https://arxiv.org/pdf/1811.08180.pdf)
 
 
-## GAN fingerprints demo
+-## GAN fingerprints demo
 -<img src='classifier_visNet/demo/demo.gif' width=800>
 
 
