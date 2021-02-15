@@ -149,12 +149,24 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   --out_dir recover_result \
   --num_total_sample 25
   ```
+  (make sure the name are in the form of celeba_{i}{j}_...)
   
   2. Evaluate accuracy
   ```
   python3 evaluate_acc.py \
   --latents_dir recover_result
   ```
-
+  where
+  - `latents_dir`: Directory which contains recovered results to be evaluate.
+  
+  ## FID
+  Given 2 image datasets, calculate FID score. 
+  ```
+  cd metrics
+  python FID.py '../real_images' '../gen_images'  --gpu 0
+  ```
+  where
+  - `gpu`: GPU to use (leave blank for CPU only)
+  
 ## Acknowledgement
 - The code in this repository is heavily borrowed from [ProGAN](https://github.com/tkarras/progressive_growing_of_gans).
