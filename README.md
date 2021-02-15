@@ -59,7 +59,6 @@ If you can access to Raiden, you can use following command to reproduct the exac
 
 ## Datasets
 - [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) aligned and cropped face dataset. We crop each image centered at (x,y) = (89,121) with size 128x128 before training.
-- [LSUN](https://github.com/fyu/lsun) bedroom scene dataset. We select the first 200k images, center-crop them to square size according to the shorter side length, and resize them to 128x128 before training.
   
 ## GAN architecture
 - [ProGAN](https://github.com/tkarras/progressive_growing_of_gans)
