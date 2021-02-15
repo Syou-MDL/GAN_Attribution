@@ -43,7 +43,7 @@ If you can access to Raiden, you can use following command to reproduct the exac
   export https_proxy=$MY_PROXY_URL
   export ftp_proxy=$MY_PROXY_URL 
   ```
-5. Set the following environmental values to set installation directories
+5. Set installation directories and install Pillow
   ```
   mkdir -p ~/.raiden/nvcr-tensorflow-1909-py3
   export PATH="${HOME}/.raiden/nvcr-tensorflow-1909-py3/bin:$PATH"
@@ -52,12 +52,11 @@ If you can access to Raiden, you can use following command to reproduct the exac
   export PYTHONPATH="${HOME}/.raiden/nvcr-tensorflow-1909-py3/lib/python3.5/site-packages" 
   export PYTHONUSERBASE="${HOME}/.raiden/nvcr-tensorflow-1909-py3" 
   export PREFIX="${HOME}/.raiden/nvcr-tensorflow-1909-py3" 
-  ```
-6. Install Pillow:
-  ```
+  
   pip install pillow --user
   ```
-7. If you want to use jupyter notebook:
+
+### If you want to use jupyter notebook:
   ```
   jupyter notebook --ip=0.0.0.0 
   ```
