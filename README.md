@@ -115,24 +115,46 @@ Given target model and random input latents(stored in target.npz), we conduct la
   - `name`: experiment name
   - `pkl_path1`: The pkl file path of source GAN model.
   - `pkl_path2`: The pkl file path of target GAN model.  
-  - `target_latents_dir`: The npy file path of input latents.
+  - `target_latents_dir`: The npy file path of input latents to be recoverd.
   - `out_dir`: The output directory for recovered latents.
   - `num_init`: Rcovery iteration for each target image
   - `num_total_sample`: Number of target images
   - `loss`: loss function('lpips' or 'l2')
   
+  In above case, the recovered latents will be stored in recover_result/celeba_01_4init/z_re.npy.
+  
 ## GAN Attribution
-Given 4 different ProGAN instances trained on CelebA with different random seeds, we evaluate the GAN attribution accuracy.
-  1. Generate 25 target image from each GAN instance, 100 target images for total. (In original paper, we evaluate the accracy with 1000 images.)
+Given 4 different ProGAN instances trained on CelebA with different random seeds(v0~v3), we evaluate the GAN attribution accuracy.
+  1. For each target-sorce model pair, conduct latent recovery for 25 target images(16 pairs in total).
   ```
-  python3 run.py \
-  --app gen \
-  --model_path models/celeba_align_png_cropped_seed_v{0~3}.pkl \
-  --out_image_dir gen/attribution/ \
-  --num_pngs 25 \
-  --gen_seed 0
+  python3 recovery.py \
+  --name celeba_00_4init \
+  --pkl_path1 models/celeba_align_png_cropped_seed_v0.pkl \
+  --pkl_path2 models/celeba_align_png_cropped_seed_v0.pkl \
+  --out_dir recover_result \
+  --num_total_sample 25
+  
+  python3 recovery.py \
+  --name celeba_01_4init \
+  --pkl_path1 models/celeba_align_png_cropped_seed_v0.pkl \
+  --pkl_path2 models/celeba_align_png_cropped_seed_v1.pkl \
+  --out_dir recover_result \
+  --num_total_sample 25
+  
+  ...
+  python3 recovery.py \
+  --name celeba_33_4init \
+  --pkl_path1 models/celeba_align_png_cropped_seed_v3.pkl \
+  --pkl_path2 models/celeba_align_png_cropped_seed_v3.pkl \
+  --out_dir recover_result \
+  --num_total_sample 25
   ```
-  2. For each target image, conduct latent recovery with each GAN instance.
+  
+  2. Evaluate accuracy
+  ```
+  python3 evaluate_acc.py \
+  --latents_dir recover_result
+  ```
 
 ## Acknowledgement
 - The code in this repository is heavily borrowed from [ProGAN](https://github.com/tkarras/progressive_growing_of_gans).
