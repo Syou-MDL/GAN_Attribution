@@ -82,7 +82,7 @@ If you can access to Raiden, you can use following command to reproduct the exac
     - `training_data_dir`: The prepared training dataset directory that can be efficiently called by the code.
     - `out_model_dir`: The output directory containing trained models, training configureation, training log, and training snapshots.
     - `training_seed`: The random seed that differentiates training instances.
-  - **Pre-trained models**. Download pre-trained models [here](https://drive.google.com/drive/folders/1E4Bm8xshBTDPBU3Nh8x6ASFduLZZmtVI?usp=sharing) and put them at `ProGAN/models/`. The models named with `_seed_v%d` are only different in random seeds from each other.
+  - **Pre-trained models**. Download pre-trained models [here](https://drive.google.com/drive/folders/1E4Bm8xshBTDPBU3Nh8x6ASFduLZZmtVI?usp=sharing) and put them at `models/`. The models named with `_seed_v%d` are only different in random seeds from each other.
   - **Generation**. With a pre-trained model, generate images of size 128x128 by running, e.g.,
     ```
     python3 run.py \
