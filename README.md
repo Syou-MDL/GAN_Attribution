@@ -149,7 +149,7 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   --out_dir recover_result \
   --num_total_sample 25
   ```
-  (make sure the name are in the form of celeba_{i}{j})
+  (make sure the name are in the form of celeba_*i*j)
   
   2. Evaluate accuracy
   ```
@@ -161,7 +161,7 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   --Gt_set 0 1 2 3
   ```
   where
-  - `latents_dir`: Directory which contains recovered results to be evaluate.(make sure the dir names in this directory are in the form of celeba_{i}{j}_...)
+  - `latents_dir`: Directory which contains recovered results to be evaluate.(make sure the dir names in this directory are in the form of celeba_*i*j)
   - `num_sample`: Target images for each target GAN model.
   - `epsilon`: Threshold of between-image l2 distance. In the case of ProGAN trained of CelebA, we set epsilon to 400.
   - `Gs_set`: Model set that verifier owns.
