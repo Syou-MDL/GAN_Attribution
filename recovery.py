@@ -152,9 +152,9 @@ if __name__ == "__main__":
     parser.add_argument('--num_init', type=int, default=4) 
     parser.add_argument('--num_total_sample', type=int, default=50) 
     parser.add_argument('--random_seed', type=int, default=5) 
-    parser.add_argument('--attack', type=str, default=None) 
+    parser.add_argument('--attack', type=str, choices=['noise', 'blur', 'center_crop', 'jpeg'], default=None) 
     parser.add_argument('--param', type=float, default=None)
-    parser.add_argument('--loss', type=str, default='lpips')
+    parser.add_argument('--loss', type=str, choices=['l2', 'lpips'], default='lpips')
     
     args = parser.parse_args()
     assert args.pkl_path1 != '' and args.pkl_path2 != ''
@@ -174,7 +174,7 @@ if __name__ == "__main__":
         assert param>0,'kernel should >0'
         print(f'attack:{attack_type},param{param}')
         attack = blur
-    elif attack_type == 'centor_crop':
+    elif attack_type == 'center_crop':
         assert param<128
         print(f'attack:{attack_type},param{param}')
         attack = center_crop
