@@ -128,14 +128,14 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   1. For each target-sorce model pair, conduct latent recovery for 25 target images(16 pairs in total).
   ```
   python3 recovery.py \
-  --name celeba_00_4init \
+  --name celeba_00 \
   --pkl_path1 models/celeba_align_png_cropped_seed_v0.pkl \
   --pkl_path2 models/celeba_align_png_cropped_seed_v0.pkl \
   --out_dir recover_result \
   --num_total_sample 25
   
   python3 recovery.py \
-  --name celeba_01_4init \
+  --name celeba_01 \
   --pkl_path1 models/celeba_align_png_cropped_seed_v0.pkl \
   --pkl_path2 models/celeba_align_png_cropped_seed_v1.pkl \
   --out_dir recover_result \
@@ -143,13 +143,13 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   
   ...
   python3 recovery.py \
-  --name celeba_33_4init \
+  --name celeba_33 \
   --pkl_path1 models/celeba_align_png_cropped_seed_v3.pkl \
   --pkl_path2 models/celeba_align_png_cropped_seed_v3.pkl \
   --out_dir recover_result \
   --num_total_sample 25
   ```
-  (make sure the name are in the form of celeba_{i}{j}_...)
+  (make sure the name are in the form of celeba_{i}{j})
   
   2. Evaluate accuracy
   ```
