@@ -18,7 +18,7 @@ def cal_accuracy(latents_dir, data_name, num_sample,Gs_set,Gt_set, epsilon):
     for i in Gt_set:
         temp = []
         for j in Gs_set:
-            losses = np.load(f'{latents_dir}/{data_name}_{i}{j}_*/l2.npy')[:num_sample]
+            losses = np.load(f'{latents_dir}/{data_name}_{i}{j}/l2.npy')[:num_sample]
             min_losses=get_min_losses(losses)
             temp.append(min_losses.tolist())
         temp = np.array(temp)
