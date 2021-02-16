@@ -168,13 +168,13 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   - `Gt_set`: Model set of target models.
   
   ## FID
-  Given 2 image datasets, calculate FID score. 
+  Given 2 image datasets, calculate FID score. (Need Internet connection for first time.)
   ```
   cd metrics
   python FID.py '../real_images' '../gen_images'  --gpu 0
   ```
   where
-  - The 2 directories shoud contains jpeg/png image files.
+  - The 2 directories shoud contain jpeg/png image files.
   - `gpu`: GPU to use (leave blank for CPU only)
   
 ## Acknowledgement
