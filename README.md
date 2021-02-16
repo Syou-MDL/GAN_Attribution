@@ -99,7 +99,7 @@ If you can access to Raiden, you can use following command to reproduct the exac
     - `gen_seed`: The random seed that differentiates generation instances.
 
 ## Latent recovery
-Given target model and random input latents(stored in target.npz), we conduct latent recovery using source model. 
+Given target model and random input latents(stored in target.npy), we conduct latent recovery using source model. 
  - **Conduct Recovery**. Run, e.g.,
   ```
   python3 recovery.py \
