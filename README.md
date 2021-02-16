@@ -103,7 +103,7 @@ Given target model and random input latents(stored in targets.npy), we conduct l
  - **Conduct Recovery**. Run, e.g.,
   ```
   python3 recovery.py \
-  --name celeba_01_4init \
+  --name celeba_01 \
   --pkl_path1 models/celeba_align_png_cropped_seed_v0.pkl \
   --pkl_path2 models/celeba_align_png_cropped_seed_v1.pkl \
   --target_latents_dir targets.npy\
