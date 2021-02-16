@@ -153,11 +153,19 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   
   2. Evaluate accuracy
   ```
-  python3 evaluate_acc.py \
-  --latents_dir recover_result
+  python evaluate_acc.py \
+  --latents_dir recover_result\
+  --num_sample 25 \
+  --epsilon 400 \
+  --Gs_set 0 1 2 3 \ 
+  --Gt_set 0 1 2 3
   ```
   where
-  - `latents_dir`: Directory which contains recovered results to be evaluate.
+  - `latents_dir`: Directory which contains recovered results to be evaluate.(make sure the dir names in this directory are in the form of celeba_{i}{j}_...)
+  - `num_sample`: Target images for each target GAN model.
+  - `epsilon`: Threshold of between-image l2 distance. In the case of ProGAN trained of CelebA, we set epsilon to 400.
+  - `Gs_set`: Model set that verifier owns.
+  - `Gt_set`: Model set of target models.
   
   ## FID
   Given 2 image datasets, calculate FID score. 
@@ -166,6 +174,7 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   python FID.py '../real_images' '../gen_images'  --gpu 0
   ```
   where
+  - The 2 directories shoud contains jpeg/png image files.
   - `gpu`: GPU to use (leave blank for CPU only)
   
 ## Acknowledgement
