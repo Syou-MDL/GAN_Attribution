@@ -161,10 +161,10 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   --Gt_set 0 1 2 3
   ```
   where
-  - `latents_dir`: Directory which contains recovered results to be evaluate.(make sure the dir names in this directory are in the form of celeba_`i``j`)
+  - `latents_dir`: Directory which contains recovered results to be evaluate.(make sure the dir names in this directory are in the form of `celeba_%d%d`)
   - `num_sample`: Target images for each target GAN model.
   - `epsilon`: Threshold of between-image l2 distance. In the case of ProGAN trained of CelebA, we set epsilon to 400.
-  - `Gs_set`: Model set that verifier owns. The numbers are corresponding to seed_v`i`
+  - `Gs_set`: Model set that verifier owns. The numbers are corresponding to ProGAN trained on different random seed.
   - `Gt_set`: Model set of target models.
   
   ## FID
