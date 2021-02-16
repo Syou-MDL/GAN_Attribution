@@ -149,7 +149,7 @@ Given 4 different ProGAN instances trained on CelebA with different random seeds
   --out_dir recover_result \
   --num_total_sample 25
   ```
-  (make sure the name are in the form of celeba_`i``j`)
+  (make sure the name are in the form of `celeba_%d%d`)
   
   2. Evaluate accuracy
   ```
